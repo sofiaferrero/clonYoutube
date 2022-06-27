@@ -1,0 +1,348 @@
+:root {
+    --grey-color: grey;
+    --grey-color2: gainsboro;
+    --brand-color: red;
+    --blue-color: #065fd4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "sidebar content";
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 10% 90%;
+    position: relative;
+}
+
+i {
+    cursor: pointer;
+}
+
+/*Header*/
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 130px;
+    background-color: white;
+}
+
+header i, .aside--list i {
+    font-size: 1.6rem;
+    padding: 0 10px;
+    vertical-align: center;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+.header--logo {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    justify-self: left;
+    align-self: center;
+}
+
+.header--logo-img {
+    width: 100px;
+}
+
+.header--search {
+    place-self: center;
+    width: 100%;
+}
+
+.header--form {
+    display: flex;
+}
+
+.header--input {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid var(--grey-color2);
+}
+
+.button-search {
+    background-color: var(--grey-color2);
+    border-radius: 0 5px 5px 0;
+}
+
+.header--profile {
+    width: 30%;
+    justify-self: right;
+    align-self: center;
+}
+
+.button__blue {
+    color: var(--blue-color);
+    border: 1px solid var(--blue-color);
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/*Aside*/
+
+aside {
+    grid-area: sidebar;
+    height: 100%;
+    width: 15%;
+    overflow-y: scroll;
+    position: fixed;
+    padding-top: 130px;
+    /*no entiendo por qué no me hace scroll hasta el final*/
+}
+
+
+aside::-webkit-scrollbar {
+    display: none;
+}
+
+.aside-button {
+    text-align: left;
+    margin: 5px 25px;
+}
+
+.aside-button .acceder {
+    color: var(--blue-color);
+}
+
+.aside-line {
+    width: 100%;
+    height: 1px;
+    margin: 15px 0;
+    background-color: var(--grey-color2);
+}
+
+.aside--list li a{
+    margin-left: 5px;
+    color: black;
+}
+
+.aside--list li {
+    padding: 10px;
+}
+
+.aside--list i {
+    margin-left: 15px;
+}
+
+.aside--list li:hover {
+    background-color: var(--grey-color2);
+}
+
+.aside--list h4{
+    color: var(--grey-color);
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.aside-info {
+    margin-left: 25px;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.aside-info a {
+    color: var(--grey-color);
+    padding: 3px;
+}
+
+.aside-info p {
+    margin-top: 20px;
+    font-weight: 700;
+    color: var(--grey-color2);
+    margin-bottom: 20px;
+}
+
+/*Menu tags*/
+
+.main-tags {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color: white;
+}
+
+.tags {
+    height: 25px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.tags li{
+    padding: 5px 10px;
+    border: 1px solid var(--grey-color);
+    border-radius: 15px;
+    background-color: var(--grey-color2);
+}
+
+.tags li a {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.tags li a:hover, .tags li:hover{
+    background-color: black;
+    color: white;
+}
+
+/*Main*/
+
+.main-publicity {
+    width: 100%;
+    margin-top: 100px;
+    height: 360px;
+    text-align: center;
+}
+
+.main-publicity img {
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.videos {
+    grid-area: content;
+    padding: 10px;
+}
+
+.videos--title {
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.videos--row {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(100px, 400px));
+    gap: 15px;
+}
+
+.video--cover {
+    position: relative;
+    z-index: -2;
+}
+
+.video--cover img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.video--cover span {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.574);
+    padding: 4px 9px;
+}
+
+.video--details {
+    display: flex;
+    padding: 15px;
+}
+
+.video--details img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.video--details h2, .video--details p {
+    margin-bottom: 5px;
+}
+
+.video--details h2{
+    font-size: 1.6rem;
+}
+
+.video--details p {
+    color: var(--grey-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.video-description i {
+    margin-left: 5px;
+}
+
+.video-description {
+    width: 100%;
+}
+
+.live-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fe0000;
+    height: 20px;
+    width: 95px;
+}
+
+.live-container img {
+    object-fit: cover;
+    height: 15px;
+    width: auto;
+}
+
+.live-container p{
+    font-size: 1rem;
+    color: white;
+    padding-top: 5px;
+}
+
+.video-description-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-description-title i {
+    justify-self: right;
+}
+
+
